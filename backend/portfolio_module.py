@@ -188,9 +188,11 @@ def contact():
     c = CONTACT
     print("Contact:")
     print()
-    print(f"  Email:    {c['email']}")
-    print(f"  GitHub:   {c['github']}")
-    print(f"  LinkedIn: {c['linkedin']}")
+    print(f"  Email:     {c['email']}")
+    print(f"  GitHub:    {c['github']}")
+    print(f"  LinkedIn:  {c['linkedin']}")
+    print(f"  Instagram: {c['instagram']}")
+    print(f"  WhatsApp:  {c['whatsapp']}")
 
 
 # Module-level singletons (what gets imported)

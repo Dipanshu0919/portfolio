@@ -79,6 +79,20 @@ async def serve_portfolio():
         raise HTTPException(status_code=404, detail="portfolio.html not found")
     return HTMLResponse(content=HTML_PATH.read_text(encoding="utf-8"))
 
+@app.get("/styles.css", response_class=FileResponse)
+async def serve_css():
+    css_path = FRONTEND_DIR / "styles.css"
+    if not css_path.exists():
+        raise HTTPException(status_code=404, detail="styles.css not found")
+    return FileResponse(css_path)
+
+@app.get("/main.js", response_class=FileResponse)
+async def serve_js():
+    js_path = FRONTEND_DIR / "main.js"
+    if not js_path.exists():
+        raise HTTPException(status_code=404, detail="main.js not found")
+    return FileResponse(js_path)
+
 
 @app.get("/api/health")
 async def health():
@@ -213,12 +227,14 @@ async def execute_python(req: ExecuteRequest):
                 error_type  = result.get("error", None)
                 new_state   = result.get("state", {})
             except json.JSONDecodeError:
-                # Runner crashed (OOM, SIGKILL from resource limits, etc.)
-                # Show runner stderr so the real error is visible
-                crash_detail = raw_stderr.strip()[:1500] if raw_stderr and raw_stderr.strip() else "(no stderr output)"
+                # Runner was killed by signal before writing JSON output
+                # (OOM killer, SIGKILL from timeout, SIGSEGV, etc.)
+                rc = proc_result.returncode if proc_result else "?"
+                raw_err = (raw_stderr or "").strip()[:800]
                 stderr_text = (
-                    "The Python sandbox terminated unexpectedly.\n"
-                    f"Runner stderr:\n{crash_detail}"
+                    f"The Python sandbox was terminated by the OS (exit code {rc}).\n"
+                    + (f"Runner stderr: {raw_err}" if raw_err else
+                       "This usually means the process ran out of memory or hit a resource limit.")
                 )
                 error_type = "sandbox_crash"
                 new_state = {}

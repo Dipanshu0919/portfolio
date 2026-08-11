@@ -56,11 +56,11 @@ def apply_resource_limits():
         resource.setrlimit(resource.RLIMIT_FSIZE, (MAX_FSIZE_BYTES, MAX_FSIZE_BYTES))
     except Exception:
         pass
-    try:
-        # Limit open file descriptors — defense-in-depth (open() stub is the primary guard)
-        resource.setrlimit(resource.RLIMIT_NOFILE, (64, 64))
-    except Exception:
-        pass
+    # NOTE: RLIMIT_NOFILE is intentionally NOT set here.
+    # The runner subprocess inherits uvicorn's open file descriptors (sockets,
+    # log handles, etc.), so a low limit like 64 causes immediate SIGXFSZ/crash.
+    # The open() stub in make_safe_globals() is the primary guard against
+    # user code opening files.
 
 # ─── Module blocklist ─────────────────────────────────────────────────────────
 BLOCKED_MODULES = {
@@ -343,15 +343,14 @@ def main():
     # Block dangerous modules — must be last in setup so preload ran cleanly.
     block_modules()
 
-
-
-    # Redirect stderr capture
-    captured_stderr = io.StringIO()
-    old_stdout = sys.stdout
-    old_stderr = sys.stderr
-
     result_state = {}
     error_msg = None
+
+    # Redirect sys.stdout to captured_stdout so that print() calls from
+    # portfolio_module.py (which use the real print, not safe_print) also
+    # go into the capture buffer instead of polluting the JSON output.
+    _real_stdout = sys.stdout
+    sys.stdout = captured_stdout
 
     try:
         # Execute user code in restricted globals
@@ -359,12 +358,13 @@ def main():
         try:
             compiled = compile(code, "<portfolio-sandbox>", "exec")
         except SyntaxError as e:
+            sys.stdout = _real_stdout  # restore before writing
             error_msg = f"SyntaxError: {e.msg} (line {e.lineno})"
             if e.text:
                 error_msg += f"\n  {e.text.rstrip()}"
                 if e.offset:
                     error_msg += "\n  " + " " * (e.offset - 1) + "^"
-            sys.stdout.write(json.dumps({
+            _real_stdout.write(json.dumps({
                 "stdout": "",
                 "stderr": error_msg,
                 "error": "syntax_error",
@@ -406,6 +406,9 @@ def main():
             line = line.replace('<portfolio-sandbox>', '<sandbox>')
             cleaned.append(line)
         error_msg = "\n".join(cleaned)
+    finally:
+        # Always restore real stdout before we write the JSON response
+        sys.stdout = _real_stdout
 
     # Write result
     out_text = captured_stdout.getvalue()
@@ -425,4 +428,16 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as _top_exc:
+        # Last-resort: ensure we ALWAYS write valid JSON to stdout
+        # so main.py never sees a JSONDecodeError for a runner bug.
+        import traceback as _tb
+        sys.stdout.write(json.dumps({
+            "stdout": "",
+            "stderr": f"Runner internal error: {_tb.format_exc()}",
+            "error": "runner_internal_error",
+            "state": {},
+        }))
+        sys.exit(1)

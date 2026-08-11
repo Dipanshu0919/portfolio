@@ -341,7 +341,9 @@ ABOUT = [
 ]
 
 CONTACT = {
-    "email": "hello@dipanshu.dev",
-    "github": "github.com/dipanshu",
-    "linkedin": "linkedin.com/in/dipanshu",
+    "email": "dipanshu0919@gmail.com",
+    "github": "github.com/dipanshu0919",
+    "linkedin": "linkedin.com/in/dipanshu-ashok-agarwal-3a3309370",
+    "instagram": "instagram.com/dipanshu0919",
+    "whatsapp": "+91 8554048836",
 }
