@@ -79,19 +79,23 @@ async def serve_portfolio():
         raise HTTPException(status_code=404, detail="portfolio.html not found")
     return HTMLResponse(content=HTML_PATH.read_text(encoding="utf-8"))
 
-@app.get("/styles.css", response_class=FileResponse)
-async def serve_css():
-    css_path = FRONTEND_DIR / "styles.css"
-    if not css_path.exists():
-        raise HTTPException(status_code=404, detail="styles.css not found")
-    return FileResponse(css_path)
 
-@app.get("/main.js", response_class=FileResponse)
+@app.get("/style.css")
+async def serve_css():
+    """Serve the external stylesheet."""
+    css_path = FRONTEND_DIR / "style.css"
+    if not css_path.exists():
+        raise HTTPException(status_code=404, detail="style.css not found")
+    return FileResponse(css_path, media_type="text/css")
+
+
+@app.get("/script.js")
 async def serve_js():
-    js_path = FRONTEND_DIR / "main.js"
+    """Serve the external JavaScript."""
+    js_path = FRONTEND_DIR / "script.js"
     if not js_path.exists():
-        raise HTTPException(status_code=404, detail="main.js not found")
-    return FileResponse(js_path)
+        raise HTTPException(status_code=404, detail="script.js not found")
+    return FileResponse(js_path, media_type="application/javascript")
 
 
 @app.get("/api/health")
