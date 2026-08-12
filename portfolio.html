@@ -1,258 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dipanshu Agarwal — Web Developer</title>
-<meta name="description" content="Dipanshu Agarwal — Web Developer. Explore my work through an interactive Python/Linux developer console, or browse the classic portfolio." />
-<meta property="og:title" content="Dipanshu Agarwal — Web Developer" />
-<meta property="og:description" content="B.Sc. IT student building, testing, and deploying real production web applications. Explore my work through an interactive developer console." />
-<meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314161A'/%3E%3Ctext x='50' y='68' font-size='58' font-family='monospace' fill='%23E8A33D' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipanshu Agarwal — Web Developer</title>
+  <meta name="description"
+    content="Dipanshu Agarwal — Web Developer. Explore my work through an interactive Python/Linux developer console, or browse the classic portfolio." />
+  <meta property="og:title" content="Dipanshu Agarwal — Web Developer" />
+  <meta property="og:description"
+    content="B.Sc. IT student building, testing, and deploying real production web applications. Explore my work through an interactive developer console." />
+  <meta property="og:type" content="website" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314161A'/%3E%3Ctext x='50' y='68' font-size='58' font-family='monospace' fill='%23E8A33D' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
 
-<header class="topnav">
-  <div class="topnav-inner">
-    <a href="#top" class="brand"><span class="dot"></span>dipanshu.dev</a>
-    <div class="modeswitch" role="tablist" aria-label="Portfolio mode">
-      <button id="btnInteractive" class="active" onclick="setMode('interactive')">Interactive</button>
-      <button id="btnClassic" onclick="setMode('classic')">Classic</button>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="#top" class="brand"><span class="dot"></span>dipanshu.dev</a>
+      <div class="modeswitch" role="tablist" aria-label="Portfolio mode">
+        <button id="btnInteractive" class="active" onclick="setMode('interactive')">Interactive</button>
+        <button id="btnClassic" onclick="setMode('classic')">Classic</button>
+      </div>
+      <nav class="navlinks">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <nav class="navlinks">
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<main id="top">
+  <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="termwin">
-        <div class="termbar">
-          <div class="termdots"><span></span><span></span><span></span></div>
-          <div class="termtitle">dipanshu.dev — zsh</div>
-          <div style="width:44px"></div>
-        </div>
-        <div class="termbody">
-          <div class="boot" id="bootLines"></div>
-          <div class="termline"><span class="prompt-user">dipanshu</span>@<span class="prompt-path">portfolio</span>:~$ whoami<span class="cursor-blink"></span></div>
-          <div class="hero-name">Dipanshu Agarwal</div>
-          <div class="hero-role">Web Developer</div>
-          <div class="hero-meta">B.Sc. IT Student · Web Development · Deployment · QA · Technical Coordination</div>
-          <div class="hero-desc">I build web applications, work with real clients, test and deploy production systems, and bridge business requirements with technical implementation.</div>
-          <div class="hero-cta">
-            <a class="btn primary" href="#console" onclick="setMode('interactive')">Explore Portfolio ▶</a>
-            <a class="btn" href="#resume">Resume</a>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="termwin">
+          <div class="termbar">
+            <div class="termdots"><span></span><span></span><span></span></div>
+            <div class="termtitle">dipanshu.dev — zsh</div>
+            <div style="width:44px"></div>
+          </div>
+          <div class="termbody">
+            <div class="boot" id="bootLines"></div>
+            <div class="termline"><span class="prompt-user">dipanshu</span>@<span
+                class="prompt-path">portfolio</span>:~$ whoami<span class="cursor-blink"></span></div>
+            <div class="hero-name">Dipanshu Agarwal</div>
+            <div class="hero-role">Web Developer</div>
+            <div class="hero-meta">B.Sc. IT Student · Web Development · Deployment · QA · Technical Coordination</div>
+            <div class="hero-desc">I build web applications, work with real clients, test and deploy production systems,
+              and bridge business requirements with technical implementation.</div>
+            <div class="hero-cta">
+              <a class="btn primary" href="#console" onclick="setMode('interactive')">Explore Portfolio ▶</a>
+              <a class="btn" href="#resume">Resume</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONSOLE (interactive mode) -->
-  <section id="console" class="section-alt interactive-only">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Developer Console</div>
-        <h2 class="section-title">Explore my work like a developer would</h2>
-        <p class="section-sub">Python mode executes real Python code through a sandboxed server-side interpreter. Linux mode is a safe client-side simulation with a virtual filesystem. Try <code>help</code> in Linux mode or <code>projects.list()</code> in Python mode.</p>
-      </div>
-
-      <div class="console-shell">
-      <div class="console-top">
-          <div class="env-select">
-            Environment:
-            <select id="envSelect" onchange="switchEnv(this.value)">
-              <option value="python">Python 3</option>
-              <option value="linux">Linux (simulated)</option>
-            </select>
-          </div>
-          <!-- Inline status bar — only visible in Python mode -->
-          <div class="console-status" id="consoleStatus">
-            <span class="console-status-left" id="pyStatusText">
-              <span class="py-status-dot starting" id="pyStatusDot"></span>Starting…
-            </span>
-            <span class="console-status-right" id="pySessionText"></span>
-          </div>
-          <div class="console-actions">
-            <button class="stop-btn" id="stopBtn" onclick="stopPython()">■ Stop</button>
-            <button class="run-btn" id="runBtn" onclick="runPython()">Run ▶</button>
-          </div>
+    <!-- CONSOLE (interactive mode) -->
+    <section id="console" class="section-alt interactive-only">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Developer Console</div>
+          <h2 class="section-title">Explore my work like a developer would</h2>
+          <p class="section-sub">Python mode executes real Python code through a sandboxed server-side interpreter.
+            Linux mode is a safe client-side simulation with a virtual filesystem. Try <code>help</code> in Linux mode
+            or <code>projects.list()</code> in Python mode.</p>
         </div>
 
-        <div id="pythonPane">
-          <div class="code-area">
-            <textarea id="pyCode" spellcheck="false">from portfolio import projects
+        <div class="console-shell">
+          <div class="console-top">
+            <div class="env-select">
+              Environment:
+              <select id="envSelect" onchange="switchEnv(this.value)">
+                <option value="python">Python 3</option>
+                <option value="linux">Linux (simulated)</option>
+              </select>
+            </div>
+            <!-- Inline status bar — only visible in Python mode -->
+            <div class="console-status" id="consoleStatus">
+              <span class="console-status-left" id="pyStatusText">
+                <span class="py-status-dot starting" id="pyStatusDot"></span>Starting…
+              </span>
+              <span class="console-status-right" id="pySessionText"></span>
+            </div>
+            <div class="console-actions">
+              <button class="stop-btn" id="stopBtn" onclick="stopPython()">■ Stop</button>
+              <button class="run-btn" id="runBtn" onclick="runPython()">Run ▶</button>
+            </div>
+          </div>
+
+          <div id="pythonPane">
+            <div class="code-area">
+              <textarea id="pyCode" spellcheck="false">from portfolio import projects
 
 print(projects)</textarea>
+            </div>
+            <!-- py-statusbar kept in DOM for JS compat, hidden via CSS -->
+            <div class="py-statusbar" id="pyStatusBar"></div>
           </div>
-          <!-- py-statusbar kept in DOM for JS compat, hidden via CSS -->
-          <div class="py-statusbar" id="pyStatusBar"></div>
+
+          <div id="linuxPane" class="hidden">
+            <div class="linux-input-row" style="padding-top:16px;">
+              <span class="prompt-text"><span class="prompt-user">dipanshu</span>@<span
+                  class="prompt-path">portfolio</span>:<span id="cwdLabel"
+                  style="color:var(--amber)">~</span>$&nbsp;</span>
+              <div class="input-wrapper">
+                <span id="linuxInput" contenteditable="true" spellcheck="false"
+                  data-placeholder="type a command… try 'help'"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="output-head">
+            <span>OUTPUT</span>
+            <button class="clear-btn" onclick="clearOutput()">clear</button>
+          </div>
+          <div id="output"></div>
+          <div class="quickcmds" id="quickcmds"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Projects</div>
+          <h2 class="section-title">Six real projects, six real roles</h2>
+          <p class="section-sub">Each project below reflects work actually logged during my internship — development,
+            testing, deployment, or coordination, clearly separated.</p>
+        </div>
+        <div class="proj-grid" id="projGrid"></div>
+      </div>
+    </section>
+
+    <div class="divider wrap"></div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Experience</div>
+          <h2 class="section-title">Experience</h2>
         </div>
 
-        <div id="linuxPane" class="hidden">
-          <div class="linux-input-row" style="padding-top:16px;">
-            <span class="prompt-text"><span class="prompt-user">dipanshu</span>@<span class="prompt-path">portfolio</span>:<span id="cwdLabel" style="color:var(--amber)">~</span>$&nbsp;</span>
-            <div class="input-wrapper">
-              <span id="linuxInput" contenteditable="true" spellcheck="false" data-placeholder="type a command… try 'help'"></span>
+        <div class="exp-card">
+          <div class="exp-top">
+            <h3>SmarTech Solutions — Web Developer Intern</h3>
+            <span>May 2026 — Present</span>
+          </div>
+          <div class="exp-cats">
+            <div class="exp-cat">
+              <h5>Development</h5>
+              <p>Web applications, dashboards, forms, and frontend/backend features across a QR/payment platform, a
+                business-card platform, and two company websites.</p>
+            </div>
+            <div class="exp-cat">
+              <h5>QA &amp; Testing</h5>
+              <p>Application testing, bug identification and reporting, multi-environment verification, and
+                user-acceptance style checks on the e-auction portal and QR platform.</p>
+            </div>
+            <div class="exp-cat">
+              <h5>Deployment &amp; Infrastructure</h5>
+              <p>Domain and subdomain setup, SSL certificates, cPanel/WHM configuration, and production deployment
+                across multiple grampanchayat instances.</p>
+            </div>
+            <div class="exp-cat">
+              <h5>Requirements &amp; Client Communication</h5>
+              <p>Requirement-gathering meetings, workflow documentation, and demonstrations with stakeholders including
+                site visits and review calls.</p>
+            </div>
+            <div class="exp-cat">
+              <h5>Technical Coordination</h5>
+              <p>Bridging requirements and fixes between clients, senior engineers, and the development team on the QR
+                and e-auction projects.</p>
+            </div>
+            <div class="exp-cat">
+              <h5>AI &amp; Digital Operations</h5>
+              <p>AI chatbot training, flow updates and deployment, AI promotional video production, and
+                digital-marketing coordination for account handoffs.</p>
             </div>
           </div>
         </div>
 
-        <div class="output-head">
-          <span>OUTPUT</span>
-          <button class="clear-btn" onclick="clearOutput()">clear</button>
+        <h3 style="margin:38px 0 20px; font-size:17px;">Timeline</h3>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <div class="divider wrap"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Skills</div>
+          <h2 class="section-title">Skills</h2>
         </div>
-        <div id="output"></div>
-        <div class="quickcmds" id="quickcmds"></div>
+        <div class="skill-grid" id="skillGrid"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Projects</div>
-        <h2 class="section-title">Six real projects, six real roles</h2>
-        <p class="section-sub">Each project below reflects work actually logged during my internship — development, testing, deployment, or coordination, clearly separated.</p>
-      </div>
-      <div class="proj-grid" id="projGrid"></div>
-    </div>
-  </section>
+    <div class="divider wrap"></div>
 
-  <div class="divider wrap"></div>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Experience</div>
-        <h2 class="section-title">Experience</h2>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-top">
-          <h3>SmarTech Solutions — Web Developer Intern</h3>
-          <span>May 2026 — Present</span>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+          <h2 class="section-title">About</h2>
         </div>
-        <div class="exp-cats">
-          <div class="exp-cat"><h5>Development</h5><p>Web applications, dashboards, forms, and frontend/backend features across a QR/payment platform, a business-card platform, and two company websites.</p></div>
-          <div class="exp-cat"><h5>QA &amp; Testing</h5><p>Application testing, bug identification and reporting, multi-environment verification, and user-acceptance style checks on the e-auction portal and QR platform.</p></div>
-          <div class="exp-cat"><h5>Deployment &amp; Infrastructure</h5><p>Domain and subdomain setup, SSL certificates, cPanel/WHM configuration, and production deployment across multiple grampanchayat instances.</p></div>
-          <div class="exp-cat"><h5>Requirements &amp; Client Communication</h5><p>Requirement-gathering meetings, workflow documentation, and demonstrations with stakeholders including site visits and review calls.</p></div>
-          <div class="exp-cat"><h5>Technical Coordination</h5><p>Bridging requirements and fixes between clients, senior engineers, and the development team on the QR and e-auction projects.</p></div>
-          <div class="exp-cat"><h5>AI &amp; Digital Operations</h5><p>AI chatbot training, flow updates and deployment, AI promotional video production, and digital-marketing coordination for account handoffs.</p></div>
-        </div>
-      </div>
-
-      <h3 style="margin:38px 0 20px; font-size:17px;">Timeline</h3>
-      <div class="timeline" id="timeline"></div>
-    </div>
-  </section>
-
-  <div class="divider wrap"></div>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Skills</div>
-        <h2 class="section-title">Skills</h2>
-      </div>
-      <div class="skill-grid" id="skillGrid"></div>
-    </div>
-  </section>
-
-  <div class="divider wrap"></div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">About</div>
-        <h2 class="section-title">About</h2>
-      </div>
-      <div class="about-text">
-        <p>I'm a B.Sc. IT student working professionally as a web developer at SmarTech Solutions. Most of what I do isn't classroom work — it's building and modifying applications that are already live, testing systems before they reach production, and sitting in on requirement calls where the spec is still being figured out.</p>
-        <p>Day to day that means writing features for a QR-based payment platform used by multiple grampanchayats, building a business-card platform from registration through PDF export, and handling the less glamorous side of shipping software: domains, SSL, cPanel/WHM, and debugging why a dashboard lags at ten thousand records.</p>
-        <p>I also spend real time on the non-coding parts of the job — translating what a client wants into something a team can build, documenting workflows, testing someone else's system and reporting what's broken, and coordinating AI chatbot and digital-marketing work. I'm still learning backend and software engineering properly, but I'd rather learn it against a real deployment than a tutorial.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider wrap"></div>
-
-  <!-- RESUME -->
-  <section id="resume">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Resume</div>
-        <h2 class="section-title">Resume</h2>
         <div class="about-text">
-          <p>A concise, one-page summary. The full detail — every project, role, and contribution — lives on this site.</p>
+          <p>I'm a B.Sc. IT student working professionally as a web developer at SmarTech Solutions. Most of what I do
+            isn't classroom work — it's building and modifying applications that are already live, testing systems
+            before they reach production, and sitting in on requirement calls where the spec is still being figured out.
+          </p>
+          <p>Day to day that means writing features for a QR-based payment platform used by multiple grampanchayats,
+            building a business-card platform from registration through PDF export, and handling the less glamorous side
+            of shipping software: domains, SSL, cPanel/WHM, and debugging why a dashboard lags at ten thousand records.
+          </p>
+          <p>I also spend real time on the non-coding parts of the job — translating what a client wants into something
+            a team can build, documenting workflows, testing someone else's system and reporting what's broken, and
+            coordinating AI chatbot and digital-marketing work. I'm still learning backend and software engineering
+            properly, but I'd rather learn it against a real deployment than a tutorial.</p>
         </div>
       </div>
-      <a class="btn primary" href="#" onclick="alert('Add your resume PDF link here — e.g. host resume.pdf and point this button to it.'); return false;">⬇ Download Resume PDF</a>
-    </div>
-  </section>
+    </section>
 
-  <div class="divider wrap"></div>
+    <div class="divider wrap"></div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Contact</div>
-        <h2 class="section-title">Get in touch</h2>
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Resume</div>
+          <h2 class="section-title">Resume</h2>
+          <div class="about-text">
+            <p>A concise, one-page summary. The full detail — every project, role, and contribution — lives on this
+              site.</p>
+          </div>
+        </div>
+        <a class="btn primary" href="#"
+          onclick="alert('Add your resume PDF link here — e.g. host resume.pdf and point this button to it.'); return false;">⬇
+          Download Resume PDF</a>
       </div>
-      <div class="contact-grid">
-        <a class="contact-item" href="mailto:dipanshu0919@gmail.com">
-          <div class="label">Email</div><div class="val">dipanshu0919@gmail.com</div>
-        </a>
-        <a class="contact-item" href="https://github.com/dipanshu0919" target="_blank" rel="noopener">
-          <div class="label">GitHub</div><div class="val">dipanshu0919</div>
-        </a>
-        <a class="contact-item" href="https://linkedin.com/in/dipanshu-ashok-agarwal-3a3309370" target="_blank" rel="noopener">
-          <div class="label">LinkedIn</div><div class="val">dipanshu-ashok-agarwal-3a3309370</div>
-        </a>
-        <a class="contact-item" href="https://instagram.com/dipanshu0919" target="_blank" rel="noopener">
-          <div class="label">Instagram</div><div class="val">dipanshu0919</div>
-        </a>
-        <a class="contact-item" href="https://wa.me/918554048836" target="_blank" rel="noopener">
-          <div class="label">WhatsApp</div><div class="val">+91 8554048836</div>
-        </a>
+    </section>
+
+    <div class="divider wrap"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Get in touch</h2>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-item" href="mailto:dipanshu0919@gmail.com">
+            <div class="label">Email</div>
+            <div class="val">dipanshu0919@gmail.com</div>
+          </a>
+          <a class="contact-item" href="https://github.com/dipanshu0919" target="_blank" rel="noopener">
+            <div class="label">GitHub</div>
+            <div class="val">dipanshu0919</div>
+          </a>
+          <a class="contact-item" href="https://linkedin.com/in/dipanshu-ashok-agarwal-3a3309370" target="_blank"
+            rel="noopener">
+            <div class="label">LinkedIn</div>
+            <div class="val">dipanshu-ashok-agarwal-3a3309370</div>
+          </a>
+          <a class="contact-item" href="https://instagram.com/dipanshu0919" target="_blank" rel="noopener">
+            <div class="label">Instagram</div>
+            <div class="val">dipanshu0919</div>
+          </a>
+          <a class="contact-item" href="https://wa.me/918554048836" target="_blank" rel="noopener">
+            <div class="label">WhatsApp</div>
+            <div class="val">+91 8554048836</div>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+  </main>
 
-<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this) closeModal()">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal-top">
-      <div></div>
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this) closeModal()">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-top">
+        <div></div>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
     </div>
-    <div class="modal-body" id="modalBody"></div>
   </div>
-</div>
 
-<footer>
-  <div class="wrap">$ echo "thanks for stopping by" · built as a real app, not a template</div>
-</footer>
+  <footer>
+    <div class="wrap">$ echo "thanks for stopping by" · built as a real app, not a template</div>
+  </footer>
 
-<script src="main.js"></script>
+  <script src="/main.js">
+  </script>
 </body>
-</html>
 
+</html>
